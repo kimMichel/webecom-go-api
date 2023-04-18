@@ -11,6 +11,7 @@ func ConfigRoutes(router *gin.Engine) *gin.Engine {
 		products := main.Group("products")
 		{
 			products.GET("/", controllers.GetProducts)
+			products.POST("/", controllers.PostProduct)
 		}
 	}
 	return router

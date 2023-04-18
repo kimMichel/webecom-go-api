@@ -21,3 +21,26 @@ func GetProducts(c *gin.Context) {
 
 	c.JSON(200, products)
 }
+
+func PostProduct(c *gin.Context) {
+	db := database.GetDatabase()
+
+	var product models.Product
+
+	err := c.ShouldBind(&product)
+	if err != nil {
+		c.JSON(400, gin.H{
+			"error": "cannot bind JSON: " + err.Error(),
+		})
+		return
+	}
+
+	err = db.Create(&product).Error
+	if err != nil {
+		c.JSON(400, gin.H{
+			"error": "cannot create product: " + err.Error(),
+		})
+		return
+	}
+	c.JSON(200, product)
+}
