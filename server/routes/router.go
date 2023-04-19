@@ -13,6 +13,10 @@ func ConfigRoutes(router *gin.Engine) *gin.Engine {
 			products.GET("/", controllers.GetProducts)
 			products.POST("/", controllers.PostProduct)
 		}
+		users := main.Group("user")
+		{
+			users.POST("/signup", controllers.Signup)
+		}
 	}
 	return router
 }

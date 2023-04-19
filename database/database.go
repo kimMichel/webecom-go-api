@@ -6,7 +6,6 @@ import (
 	"os"
 	"time"
 
-	"github.com/joho/godotenv"
 	"github.com/kimMichel/webecom-go-api/database/migrations"
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
@@ -15,7 +14,6 @@ import (
 var db *gorm.DB
 
 func ConnectDb() {
-	loadEnv()
 	dsn := fmt.Sprintf(
 		"host=%s user=%s password=%s dbname=%s port=5432 sslmode=disable",
 		os.Getenv("DB_HOST"),
@@ -45,11 +43,4 @@ func ConnectDb() {
 
 func GetDatabase() *gorm.DB {
 	return db
-}
-
-func loadEnv() {
-	err := godotenv.Load()
-	if err != nil {
-		log.Fatal("Error loading .env file")
-	}
 }
