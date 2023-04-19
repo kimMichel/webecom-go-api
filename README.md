@@ -11,3 +11,5 @@ Creating a REST API in golang using the gin framework.
 - [Gorm](https://gorm.io/)
 
 - [PostgreSQL](https://www.postgresql.org/)
+
+- [bycrpty](https://pkg.go.dev/golang.org/x/crypto@v0.8.0/bcrypt)
