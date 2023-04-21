@@ -16,6 +16,7 @@ func ConfigRoutes(router *gin.Engine) *gin.Engine {
 		users := main.Group("user")
 		{
 			users.POST("/signup", controllers.Signup)
+			users.POST("/signin", controllers.Signin)
 		}
 	}
 	return router
